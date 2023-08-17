@@ -208,7 +208,7 @@ func (s *engineServer) GetServerStats(req *pbEngine.ServerRequest, stream pbEngi
 	}
 	defer stats.Body.Close()
 	var stat types.StatsJSON
-	decoder := json.NewDecoder(stats.Body) //decoding the stream
+	decoder := json.NewDecoder(stats.Body) //decoding the json stream
 	for {
 		if err := decoder.Decode(&stat); err != nil {
 			if err == io.EOF {
